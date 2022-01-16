@@ -1,6 +1,6 @@
 {
   "name": "scan-detector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect barcode scanner and keyboard inputs separately in your web or electronJS application with ease",
   "main": "index.js",
   "directories": {
