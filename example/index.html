@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="text_input" type="text" />
+  </body>
+  <script src="../scan-detector.js"></script>
+  <script>
+    let input = document.getElementById("text_input");
+
+    let sd = ScanDetector({
+      element: document,
+      avgCharTime: 30,
+      minCodeLength: 6,
+      customEncoder: (event) => {
+        return event.key;
+      },
+      onScanFinish: (code) => {
+        return [...code.matchAll(/Alt([0-9]{3})/g)].reduce((t, v) => {
+          return (t += String.fromCharCode(v[1].toString()));
+        }, "");
+      },
+    });
+
+    sd.attach();
+    document.addEventListener("scanner", (e) => {
+      input.value = e.detail;
+    });
+    document.addEventListener("keyboard", (e) => {
+      console.log(e);
+    });
+  </script>
+</html>
