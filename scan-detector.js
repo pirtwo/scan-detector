@@ -1,3 +1,8 @@
+/**
+ * Detects barcode scanner and keyboard inputs
+ * @param {any} options
+ * @returns object
+ */
 function ScanDetector(options = {}) {
   let obj = {};
   obj.element = document;
