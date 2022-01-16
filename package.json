@@ -6,6 +6,9 @@
   "directories": {
     "example": "example"
   },
+  "repository": {
+    "url": "https://github.com/pirtwo/scan-detector"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
