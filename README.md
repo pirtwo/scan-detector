@@ -82,7 +82,7 @@ let detector = ScanDetector({
   },
   onScanFinish: (code) => {
     return [...code.matchAll(/Alt([0-9]{3})/g)].reduce((t, v) => {
-      return (t += String.fromCharCode(v[1].toString()));
+      return (t += String.fromCharCode(+v[1]));
     }, "");
   },
 });
